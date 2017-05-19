@@ -1,3 +1,5 @@
 get '/' do
-  erb :"static/index"
+	session[:user]
+	erb :"static/index"
 end
+
