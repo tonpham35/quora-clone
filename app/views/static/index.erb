@@ -1,9 +1,9 @@
 <h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
 
 <% if session[:user] %>
 	<p>Hello <%= session[:full_name] %></p>
-	<a href="/logout"><button>Log Out</button></a>
+	<a href="/logout"><button>Log Out</button></a><br>
+	<a href="/users/<%=session[:user]%>"><%= session[:full_name] %>'s Profile Page</a>
 <% else %>
 	<div id="signup-buttons">
 	<a href="/signup"><button>Sign Up</button></a><br>
@@ -11,4 +11,31 @@
 	</div>
 <% end %>
 
-<a href="/users/<%=session[:user]%>"><%= session[:full_name] %>'s Profile Page</a>
+<h2>Ask a question.</h2>
+<form method="post" action="/question">
+    <input type="text" placeholder="Question?" name="question"></br>
+    <input type="submit" value="Ask Question">
+</form>
+
+		<div class = "output">
+			<% if @question != nil %> 
+				<table class = "table">
+					<thead>
+					<th>Question</th>
+					<th>User</th>
+					<th>Created Date</th>
+					</thead>
+					<tbody class = "tablebody">
+					<% @question.order('created_at DESC').each do |x| %>
+						<tr>
+							<td><%= x.question %></td>
+							<td><%= x.user.full_name %></td>
+							<!-- <td><%#= User.find_by(id: x.user_id).full_name %></td> -->
+							<td><%= x.created_at %></td>
+						</tr>
+					<% end %>
+					</tbody>
+				</table> 
+
+ 			<% end %>
+ 		</div>

@@ -1,3 +1,5 @@
+
+
 #CREATE - new
 get '/login' do
 	if session[:user] != nil
@@ -23,6 +25,7 @@ post '/login' do
   		session[:user] = @user.id
   		session[:email] = @user.email
   		session[:full_name] = @user.full_name
+  		session[:id] = @user.id
     	redirect '/'
 	else
 		@message = 'Invalid Log-in. Check email and password'
@@ -33,3 +36,4 @@ get '/users/:id' do
 	@user = User.find(params[:id])
   	erb :"users/show"
 end
+
