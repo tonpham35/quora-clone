@@ -4,9 +4,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 
 	validates :email, :password_digest, presence: {message: "Please fill-in all fields" }
-	validates :email, uniqueness: true # { message: "must be new"}
-	validates :email, format: { with: /\w*@.*\.\w*/,
-		message: "Invalid email address" } 
-	validates :password_digest, length: { minimum: 6,
-		message: "Password must be at least 6 characters" }
+	validates :email, uniqueness: { message: "must be new"}
+	validates :email, format: { with: /\w*@.*\.\w*/, message: "Invalid email address" } 
+	validates :password_digest, length: { minimum: 6, message: "Password must be at least 6 characters" }
 end

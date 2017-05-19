@@ -1,2 +1,11 @@
 <h1>Hello World</h1>
 <p>See Me in views/static/index.html.erb</p>
+
+<% if session[:user] %>
+	<a href="/logout"><button>Log Out</button></a>
+<% else %>
+	<div id="signup-buttons">
+	<a href="/signup"><button>Sign Up</button></a><br>
+	<a href="/login"><button>Log In</button></a><br>
+	</div>
+<% end %>
