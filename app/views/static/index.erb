@@ -10,3 +10,5 @@
 	<a href="/login"><button>Log In</button></a><br>
 	</div>
 <% end %>
+
+<a href="/users/<%=session[:user]%>"><%= session[:full_name] %>'s Profile Page</a>
