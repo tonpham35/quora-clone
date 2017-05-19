@@ -2,6 +2,7 @@
 <p>See Me in views/static/index.html.erb</p>
 
 <% if session[:user] %>
+	<p>Hello <%= session[:full_name] %></p>
 	<a href="/logout"><button>Log Out</button></a>
 <% else %>
 	<div id="signup-buttons">
