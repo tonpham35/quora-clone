@@ -12,7 +12,7 @@
 <% end %>
 
 <h2>Ask a question.</h2>
-<form method="post" action="/question">
+<form method="post" action="/questions">
     <input type="text" placeholder="Question?" name="question"></br>
     <input type="submit" value="Ask Question">
 </form>
@@ -28,9 +28,8 @@
 					<tbody class = "tablebody">
 					<% @question.order('created_at DESC').each do |x| %>
 						<tr>
-							<td><%= x.question %></td>
-							<td><%= x.user.full_name %></td>
-							<!-- <td><%#= User.find_by(id: x.user_id).full_name %></td> -->
+							<td><a href="/questions/<%=x.id%>"><%= x.question %></a></td>
+							<td><a href="/users/<%=x.user.id%>"><%= x.user.full_name %></a></td>
 							<td><%= x.created_at %></td>
 						</tr>
 					<% end %>

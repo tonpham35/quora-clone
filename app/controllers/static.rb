@@ -4,6 +4,6 @@ get '/' do
 	erb :"static/index"
 end
 
-post '/question' do
+post '/questions' do
   @questions = Question.new(user_id: session[:id], question: params[:question])
 end

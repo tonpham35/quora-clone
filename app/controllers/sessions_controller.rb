@@ -34,6 +34,7 @@ end
 
 get '/users/:id' do
 	@user = User.find(params[:id])
+	@question = Question.where(user: @user.id)
+	@answer = Answer.where(user: @user.id)
   	erb :"users/show"
 end
-

@@ -2,4 +2,50 @@
 <p>Name: <%= @user.full_name %><p><br>
 <p>Email: <%= @user.email %><p><br>
 
-<h2>Your Questions</h2>
+<h2>My Questions</h2>
+
+		<div class = "output">
+			<% if @question != nil %> 
+				<table class = "table">
+					<thead>
+					<th>Question</th>
+					<th>Created Date</th>
+					</thead>
+					<tbody class = "tablebody">
+					<% @question.order('created_at DESC').each do |x| %>
+						<tr>
+							<td><a href="/questions/<%=x.id%>"><%= x.question %></a></td>
+							<td><%= x.created_at %></td>
+						</tr>
+					<% end %>
+					</tbody>
+				</table> 
+
+ 			<% end %>
+ 		</div>
+
+<h2>My Answers</h2>
+
+		<div class = "output">
+			<% if @question != nil %> 
+				<table class = "table">
+					<thead>
+					<th>Author</th>
+					<th>Question</th>
+					<th>Answer</th>
+					<th>Created Date</th>
+					</thead>
+					<tbody class = "tablebody">
+					<% @answer.order('created_at DESC').each do |x| %>
+						<tr>
+							<td><a href="/users/<%=x.question.user.id%>"><%= x.question.user.full_name %></a></td>
+							<td><a href="/questions/<%=x.question.id%>"><%= x.question.question %></a></td>
+							<td><%= x.answer %></td>
+							<td><%= x.created_at %></td>
+						</tr>
+					<% end %>
+					</tbody>
+				</table> 
+
+ 			<% end %>
+ 		</div>

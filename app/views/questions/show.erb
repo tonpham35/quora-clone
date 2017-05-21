@@ -1,0 +1,40 @@
+<h1> Question #<%= @question.id %> By: <a href="/users/<%=@question.user.id%>"><%= @question.user.full_name %></a></h1>
+
+<p>Question: <%= @question.question %></p>
+
+<h2>Answer</h2>
+<!-- <form method="post" action="/answers/create">
+	<input type="hidden" name="question_id" value="<%#= @question.id %>">
+    <textarea placeholder="Write your answer here" name="answer"></textarea>
+    <input type="submit" value="Anwer">
+</form> -->
+
+<form action="/questions/:id/answer" method="post">
+	<textarea name="response" placeholder="Write your answer here"></textarea>
+	<input type="hidden" name="question_id" value="<%= @question.id %>">
+	<!-- <input type="hidden" name="user_id" value="<#% session[:id] %>"> -->
+	<input type="submit" value="Submit">
+</form>
+
+
+		<div class = "output">
+			<% if @answer != nil %> 
+				<table class = "table">
+					<thead>
+					<th>User</th>
+					<th>Answer</th>
+					<th>Created Date</th>
+					</thead>
+					<tbody class = "tablebody">
+					<% @answer.order('created_at DESC').each do |x| %>
+						<tr>
+							<td><%= x.user.full_name %></td>
+							<td><%= x.answer %></td>
+							<td><%= x.created_at %></td>
+						</tr>
+					<% end %>
+					</tbody>
+				</table> 
+
+ 			<% end %>
+ 		</div>
