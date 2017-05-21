@@ -1,5 +1,6 @@
 get '/' do
 	@question = Question.all
+	@answer = Answer.all
 	@user = User.all
 	erb :"static/index"
 end

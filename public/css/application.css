@@ -1,0 +1,110 @@
+/** {
+	border: 1px solid rgba(0, 0, 0, 0.3);
+}*/
+
+body {
+	margin: 0px 0px;
+	padding-top: 120px;
+	padding-bottom: 2000px;
+}
+
+a { 
+	text-decoration : none; 
+}
+
+.header {
+	z-index: 10;
+	position: fixed;
+	top: 0;
+	height: 60px;
+	width: 100%;	
+	margin: 0px 0px;
+	padding: 0px;
+	background-color: #F0F0F0;
+	border-bottom: 2px solid grey;
+}
+
+#logo {
+	position: relative;
+	top: -32px;
+	left: 3%;
+}
+
+#signup-buttons {
+	position: absolute;
+	top: 8px;
+	right: 3%;
+}
+
+.button-red {
+    background-color: #C72B1C;
+    border: none;
+    color: white;
+    padding: 7px 12px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    display: inline;
+}
+
+.button-red:hover {
+    color: black;
+    background-color: darkred;
+}
+
+#ask-button {
+	position: absolute;
+    background-color: #C72B1C;
+    border: none;
+    color: white;
+    width: 16%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    height: 100%;
+    right: 0;
+}
+
+#ask-button:hover {
+    color: black;
+    background-color: darkred;
+}
+
+.post-question {
+	position: absolute;
+	top: 61px;
+	height: 43px;
+	width: 100%;
+}
+
+#question-input {
+	height: 38px;
+	width: 84%;
+	font-size: 135%;
+	padding-left: 10px;
+}
+
+.box {
+	background-color: #F0F0F0;
+	width: 450px;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	padding: 0px;
+	margin: auto;
+}
+
+.box-header {
+	background-color: #F1F1F1;
+	width: 100%;
+	border: 1px solid rgba(0, 0, 0, 1);
+	font-size: 1.5em;
+
+}
+
+.box-header {
+	width: 100%;
+	border: 1px solid rgba(0, 0, 0, 1);
+	font-size: 1em;
+	display: inline;
+}
