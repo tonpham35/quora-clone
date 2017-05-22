@@ -1,51 +1,65 @@
-<h1> Your Profile </h1>
-<p>Name: <%= @user.full_name %><p><br>
-<p>Email: <%= @user.email %><p><br>
+<div style="padding: 0% 17%">
+<h1 style="padding-left: 2%; margin-bottom: 10px;"> <%= @user.full_name %> </h1>
+<p style="padding-left: 2%; margin: 0px 0px;">Email: <%= @user.email %></p>
 
-<h2>My Questions</h2>
-
-		<div class = "output">
-			<% if @question != nil %> 
-				<table class = "table">
-					<thead>
-					<th>Question</th>
-					<th>Created Date</th>
+	<div style="width: 100%; margin: auto;">
+		<% if @question != nil %> 
+		<h2 style="padding-left: 2%">Questions</h2>
+			<% @question.order('created_at DESC').each do |x| %>
+				<table class="table">
+					<thead class="box-header">
+						<th colspan="2"><a href="/questions/<%=x.id%>"><%= x.question %></a>
+						</th>
+						<th> 
+							<% if x.user.id == session[:id] %>
+							<form action="/questions/<%=x.id%>/delete" method="post" style="text-align: right">
+								<span><input class="button-red" type="submit" value="Delete"></span>
+							</form>
+							<% end %>
+						</th>
 					</thead>
-					<tbody class = "tablebody">
-					<% @question.order('created_at DESC').each do |x| %>
+					<tbody>
 						<tr>
-							<td><a href="/questions/<%=x.id%>"><%= x.question %></a></td>
-							<td><%= x.created_at %></td>
+							<td style="color: grey">Responses: <%= x.answers.count %></td>
+							<td style="color: grey; text-align: right" colspan="2"><a href="/users/<%=x.user.id%>" style="color: grey"><%= x.user.full_name %> - </a>
+							<span class='question-created-at'><%= x.created_at.iso8601 %></span></td>
 						</tr>
-					<% end %>
 					</tbody>
-				</table> 
+				</table><br>
+			<% end %>
+		<% end %>
+	</div>
 
- 			<% end %>
- 		</div>
-
-<h2>My Answers</h2>
-
-		<div class = "output">
-			<% if @question != nil %> 
-				<table class = "table">
-					<thead>
-					<th>Author</th>
-					<th>Question</th>
-					<th>Answer</th>
-					<th>Created Date</th>
+	<div style="width: 100%; margin: auto;">
+		<% if @answer != nil %> 
+		<h2 style="padding-left: 2%">Answers</h2>
+			<% @answer.order('created_at DESC').each do |x| %>
+				<table class="table">
+					<thead class="box-header">
+						<th colspan="2"><%= x.answer %>
+						</th>
+						<th> 
+							<% if x.user.id == session[:id] %>
+							<form action="/answers/<%=x.id%>/delete" method="post" style="text-align: right">
+								<span><input class="button-red" type="submit" value="Delete"></span>
+							</form>
+							<% end %>
+						</th>
 					</thead>
-					<tbody class = "tablebody">
-					<% @answer.order('created_at DESC').each do |x| %>
+					<tbody>
 						<tr>
-							<td><a href="/users/<%=x.question.user.id%>"><%= x.question.user.full_name %></a></td>
-							<td><a href="/questions/<%=x.question.id%>"><%= x.question.question %></a></td>
-							<td><%= x.answer %></td>
-							<td><%= x.created_at %></td>
+							<td style="color: grey"><a href="/questions/<%=x.question.id%>"><%= x.question.question %></a></td>
+							<td style="color: grey; text-align: right" colspan="2"><a href="/users/<%=x.question.user.id%>">By: <%= x.question.user.full_name %></a>
+							<span class='question-created-at'><%= x.created_at.iso8601 %></span></td>
 						</tr>
-					<% end %>
 					</tbody>
-				</table> 
+				</table><br>
+			<% end %>
+		<% end %>
+	</div>
 
- 			<% end %>
- 		</div>
+	<% if session[:id] == @user.id %>
+		<form action="/users/<%=session[:id]%>/delete" method="post" style="text-align: right">
+			<span><input class="button-red" type="submit" value="Delete Account"></span>
+		</form>
+	<% end %>

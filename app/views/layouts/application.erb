@@ -2,36 +2,46 @@
 <html>
 	<head>
 		<title>Quora Clone by Ton</title>
-		<link href="https://fonts.googleapis.com/css?family=Lato:900|Montserrat|Pacifico" rel="stylesheet">	
-		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">	<meta charset="utf-8">
   		<meta name="viewport" content="width=device-width, initial-scale=1">
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="js/application.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/application.css">
+		<script src="/js/application.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/application.css">
 	</head>
 	<body>
-		<%= yield %>
-
 		<div class="header">
-			<a href="/"><img id="logo" src="img/quora-logo.png" height="200%"></a>
+			<a href="/"><img id="logo" src="/img/quora-logo.png" height="200%"></a>
 
 			<div id="signup-buttons">
-				<% if session[:user] %>
-					<a href="/users/<%=session[:user]%>"><button class="button-red"><%=session[:full_name]%>'s Profile</button></a>
+				<% if session[:id] %>
+					<a href="/users/<%=session[:id]%>"><button class="button-red"><%=session[:full_name]%>'s Profile</button></a>
 					<a href="/logout"><button class="button-red">Log Out</button></a>
 				<% else %>
 						<a href="/login"><button class="button-red">Log In</button></a>
 						<a href="/signup"><button class="button-red">Sign Up</button></a>
 				<% end %>
 			</div>
+
+			<% if session[:id] %>
 			<div class="post-question">
 				<form method="post" action="/questions">
 	    			<input id="question-input" type="text" placeholder="What is your question?" name="question">
 	    			<input id="ask-button" type="submit" value="Ask Question">
 				</form>
 			</div>
+			<% end %>
+		</div>
+		<!-- <div id="left-container">
+		</div>
+		<div id="right-container">
+		</div> -->
+	<div class="box-left">
+	</div>
+	<div class="box-right">
+	</div>
+	<%= yield %>
 	</body>
 </html>
 

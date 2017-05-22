@@ -1,24 +1,18 @@
-<html>
-	<head>
+<div style="width: 70%; margin: auto;">
+	<% @question.order('created_at DESC').each do |x| %>
+		<table class="table">
+			<thead class="box-header">
+				<th colspan="2"><a href="/questions/<%=x.id%>"><%= x.question %></a>
+				</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="color: grey">Responses: <%= x.answers.count %></td>
+					<td style="color: grey; text-align: right"><a href="/users/<%=x.user.id%>" style="color: grey"><%= x.user.full_name %> - </a>
+					<span class='question-created-at'><%= x.created_at.iso8601 %></span></td>
+				</tr>
+			</tbody>
+		</table><br>
+	<% end %>
+</div>
 
-	</head>
-
-		<% if @question != nil %> 
-				<% @question.order('created_at DESC').each do |x| %>
-					<div class="box">
-						<div class="box-header">
-						<a href="/questions/<%=x.id%>"><%= x.question %></a>
-						</div>
-						<div class="box-inner">
-						<!-- 	<%#= @answer.find_by(question: x.id).each do |y| %>
-								<%#= y.answer %>
-							<%# end %> -->
-							<div class="box-footer" style="display:inline">
-							User: <a href="/users/<%=x.user.id%>" stytle="margin:left"><%= x.user.full_name %></a>
-							<div style="text-align:right"><%= x.created_at %></div>
-							</div>
-						</div>
-					</div><br>
-				<% end %>
-		<% end %>
-		

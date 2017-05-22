@@ -2,7 +2,7 @@
 
 #CREATE - new
 get '/login' do
-	if session[:user] != nil
+	if session[:id] != nil
 		@message = "Already logged in, please log off first"
 	else
 		erb :"sessions/login"
@@ -12,7 +12,7 @@ end
 #DELETE - destroy
 
 get '/logout' do
-	session[:user] = nil	
+	session[:id] = nil	
 	redirect '/'
 end
 
@@ -22,7 +22,6 @@ post '/login' do
 	@user = User.find_by(email: params[:email])
 	session.clear
 	if @user.authenticate(params[:password_digest])
-  		session[:user] = @user.id
   		session[:email] = @user.email
   		session[:full_name] = @user.full_name
   		session[:id] = @user.id

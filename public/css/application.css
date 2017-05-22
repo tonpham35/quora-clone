@@ -2,14 +2,19 @@
 	border: 1px solid rgba(0, 0, 0, 0.3);
 }*/
 
-body {
-	margin: 0px 0px;
-	padding-top: 120px;
-	padding-bottom: 2000px;
+html, body {
+	margin: 60px 0px;
+	/*padding-top: 60px;*/
+	background-color: #F7F7F7;
+	height: 100%;
 }
 
 a { 
-	text-decoration : none; 
+	text-decoration : none;
+}
+
+a:visited {
+	color: #000;
 }
 
 .header {
@@ -20,8 +25,22 @@ a {
 	width: 100%;	
 	margin: 0px 0px;
 	padding: 0px;
-	background-color: #F0F0F0;
+	background-color: #F7F7F7;
 	border-bottom: 2px solid grey;
+}
+
+.center {
+	align: center;
+}
+
+#left-container {
+	position:fixed;
+	width: 15%;
+	border-right: 2px solid rgba(0, 0, 0, 0.3);
+	border-left: 2px solid rgba(0, 0, 0, 0.3);
+	height: 100%;
+	top: 50px;
+	z-index: 0;
 }
 
 #logo {
@@ -58,7 +77,7 @@ a {
     background-color: #C72B1C;
     border: none;
     color: white;
-    width: 16%;
+    width: 150px;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
@@ -79,32 +98,71 @@ a {
 	width: 100%;
 }
 
+.post-answer {
+	height: 43px;
+	width: 90%;
+	margin-left: 5%;
+}
+
 #question-input {
 	height: 38px;
-	width: 84%;
+	width: 90%;
 	font-size: 135%;
 	padding-left: 10px;
+	border-bottom-width: 2px;
 }
 
-.box {
-	background-color: #F0F0F0;
-	width: 450px;
-	border: 1px solid rgba(0, 0, 0, 0.3);
-	padding: 0px;
+#box-container {
 	margin: auto;
 }
+	
+.box-left {
+	background-color: #F7F7F7;
+	width: 15%;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	margin-left: 0%;
+	position: fixed;
+	top: -16px;
+	height: 120%;
+}
 
-.box-header {
+.box-right {
+	background-color: #F7F7F7;
+	width: 15%;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	margin-left: 85%;
+	position: fixed;
+	top: -16px;
+	height: 120%;
+}
+.box-question {
 	background-color: #F1F1F1;
-	width: 100%;
-	border: 1px solid rgba(0, 0, 0, 1);
 	font-size: 1.5em;
+	text-align: left;
+	text-decoration : none #000;
+	width: 100%;
+	border-bottom: 1px solid black;
+}
 
+.table {
+	border: 1px solid black;
+	width: 90%;
+	margin: auto;
+	margin-top: 10px;
+	background-color: white;
 }
 
 .box-header {
-	width: 100%;
-	border: 1px solid rgba(0, 0, 0, 1);
-	font-size: 1em;
-	display: inline;
+	text-align: left;
+	font-family: 'Merriweather', serif;
+	font-size: 18px;
+
+}
+
+.title {
+	font-size: 35px;
+	font-family: 'Merriweather', serif;
+	position: relative;
+	margin-top: 20px;
+
 }
