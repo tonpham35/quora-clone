@@ -29,6 +29,41 @@ a:visited {
 	border-bottom: 2px solid grey;
 }
 
+#log-in {
+	display: none;
+	z-index: 9;
+	position: fixed;
+	top: 0;
+	height: 100%;
+	width: 100%;	
+	margin: 0px 0px;
+	padding: 0px;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+#sign-up {
+	display: none;
+	z-index: 9;
+	position: fixed;
+	top: 0;
+	height: 100%;
+	width: 100%;	
+	margin: 0px 0px;
+	padding: 0px;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+#login-box {
+	z-index: 10;
+	position: fixed;
+	right: 5px;
+	top:63px;
+	height: 300px;
+	width: 400px;	
+	padding: 0px;
+	background-color: white;
+}
+
 .center {
 	align: center;
 }
@@ -68,6 +103,23 @@ a:visited {
 }
 
 .button-red:hover {
+    color: black;
+    background-color: darkred;
+}
+
+#button-red-login {
+    background-color: #C72B1C;
+    border: none;
+    color: white;
+    padding: 7px 12px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    display: inline;
+}
+
+#button-red-login:hover {
     color: black;
     background-color: darkred;
 }
@@ -164,5 +216,21 @@ a:visited {
 	font-family: 'Merriweather', serif;
 	position: relative;
 	margin-top: 20px;
+}
 
+.login-input {
+	padding-left: 5px;
+	height: 25px;
+	color: black;
+	width: 100%;
+	font-size: 20px;
+	font-family: 'Merriweather', serif;
+}
+
+.login-in {
+	margin: 15%;
+}
+
+#box-off {
+	margin: 10px;
 }

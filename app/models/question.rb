@@ -3,4 +3,12 @@ class Question < ActiveRecord::Base
 	belongs_to :user
 	has_many :answers
 
+	def answer_count
+		self.answers.count
+	end
+
+	def owner_full_name
+		self.user.full_name
+	end
+
 end

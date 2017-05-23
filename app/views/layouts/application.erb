@@ -11,6 +11,31 @@
 		<link rel="stylesheet" type="text/css" href="/css/application.css">
 	</head>
 	<body>
+		<div id="log-in">
+			<div id="login-box">
+				<img id="box-off" src="/img/x-exit.png" alt="Exit" height='15px' width='15px' align='right' onclick="clickShow('log-in')">
+				<h2 style="text-align: center">Log in to your account!</h2>
+				<form class='login-in' method="post" action="/login">
+			    	<input class="login-input" type=text placeholder="Email" name="email"><br>
+			    	<input class="login-input" type=password placeholder="Password" name="password_digest"></br>
+			    	<input class='button-red' type=submit value="Log In">
+				</form>
+			</div>
+		</div>
+
+		<div id="sign-up">
+			<div id="login-box">
+				<img id="box-off" src="/img/x-exit.png" alt="Exit" height='15px' width='15px' align='right' onclick="clickShow('sign-up')">
+				<h2 style="text-align: center">Sign up for Quora!</h2>
+				<form class='login-in' method="post" action="/signup">
+				   	<input class="login-input" type="text" placeholder="Full Name" name="full_name"><br> 
+				    <input class="login-input" type="text" placeholder="Email" name="email"><br>
+				    <input class="login-input" type="password" placeholder="Password" name="password_digest"></br>
+				    <input class='button-red' type="submit" value="Sign up">
+				</form>
+			</div>
+		</div>
+
 		<div class="header">
 			<a href="/"><img id="logo" src="/img/quora-logo.png" height="200%"></a>
 
@@ -19,14 +44,14 @@
 					<a href="/users/<%=session[:id]%>"><button class="button-red"><%=session[:full_name]%>'s Profile</button></a>
 					<a href="/logout"><button class="button-red">Log Out</button></a>
 				<% else %>
-						<a href="/login"><button class="button-red">Log In</button></a>
-						<a href="/signup"><button class="button-red">Sign Up</button></a>
+						<button class="button-red" onclick="clickShow('log-in')">Log In</button>
+						<button class="button-red" onclick="clickShow('sign-up')">Sign Up</button>
 				<% end %>
 			</div>
 
 			<% if session[:id] %>
 			<div class="post-question">
-				<form method="post" action="/questions">
+				<form id="post-question" method="post" action="/questions">
 	    			<input id="question-input" type="text" placeholder="What is your question?" name="question">
 	    			<input id="ask-button" type="submit" value="Ask Question">
 				</form>

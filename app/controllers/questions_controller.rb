@@ -1,7 +1,8 @@
 post '/questions' do
 	@questions = current_user.questions.new(question: params[:question])
 	@questions.save
-	redirect '/'
+	@questions.to_json(methods: [:answer_count], include: :user)
+	# redirect '/'
 end
 
 get '/questions/:id' do
@@ -18,9 +19,7 @@ end
 
 post '/questions/:id/delete' do
 	@question = Question.find(params[:id])
-	# @answers = @question.answers.all 
 	x = @question.user.id
-	# @answers.destroy_all
 	@question.destroy
 	redirect "users/#{x}"
 end
