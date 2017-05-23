@@ -1,0 +1,236 @@
+/** {
+	border: 1px solid rgba(0, 0, 0, 0.3);
+}*/
+
+html, body {
+	margin: 60px 0px;
+	/*padding-top: 60px;*/
+	background-color: #F7F7F7;
+	height: 100%;
+}
+
+a { 
+	text-decoration : none;
+}
+
+a:visited {
+	color: #000;
+}
+
+.header {
+	z-index: 10;
+	position: fixed;
+	top: 0;
+	height: 60px;
+	width: 100%;	
+	margin: 0px 0px;
+	padding: 0px;
+	background-color: #F7F7F7;
+	border-bottom: 2px solid grey;
+}
+
+#log-in {
+	display: none;
+	z-index: 9;
+	position: fixed;
+	top: 0;
+	height: 100%;
+	width: 100%;	
+	margin: 0px 0px;
+	padding: 0px;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+#sign-up {
+	display: none;
+	z-index: 9;
+	position: fixed;
+	top: 0;
+	height: 100%;
+	width: 100%;	
+	margin: 0px 0px;
+	padding: 0px;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+#login-box {
+	z-index: 10;
+	position: fixed;
+	right: 5px;
+	top:63px;
+	height: 300px;
+	width: 400px;	
+	padding: 0px;
+	background-color: white;
+}
+
+.center {
+	align: center;
+}
+
+#left-container {
+	position:fixed;
+	width: 15%;
+	border-right: 2px solid rgba(0, 0, 0, 0.3);
+	border-left: 2px solid rgba(0, 0, 0, 0.3);
+	height: 100%;
+	top: 50px;
+	z-index: 0;
+}
+
+#logo {
+	position: relative;
+	top: -32px;
+	left: 3%;
+}
+
+#signup-buttons {
+	position: absolute;
+	top: 8px;
+	right: 3%;
+}
+
+.button-red {
+    background-color: #C72B1C;
+    border: none;
+    color: white;
+    padding: 7px 12px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    display: inline;
+}
+
+.button-red:hover {
+    color: black;
+    background-color: darkred;
+}
+
+#button-red-login {
+    background-color: #C72B1C;
+    border: none;
+    color: white;
+    padding: 7px 12px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    display: inline;
+}
+
+#button-red-login:hover {
+    color: black;
+    background-color: darkred;
+}
+
+#ask-button {
+	position: absolute;
+    background-color: #C72B1C;
+    border: none;
+    color: white;
+    width: 150px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    height: 100%;
+    right: 0;
+}
+
+#ask-button:hover {
+    color: black;
+    background-color: darkred;
+}
+
+.post-question {
+	position: absolute;
+	top: 61px;
+	height: 43px;
+	width: 100%;
+}
+
+.post-answer {
+	height: 43px;
+	width: 90%;
+	margin-left: 5%;
+}
+
+#question-input {
+	height: 38px;
+	width: 90%;
+	font-size: 135%;
+	padding-left: 10px;
+	border-bottom-width: 2px;
+}
+
+#box-container {
+	margin: auto;
+}
+	
+.box-left {
+	background-color: #F7F7F7;
+	width: 15%;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	margin-left: 0%;
+	position: fixed;
+	top: -16px;
+	height: 120%;
+}
+
+.box-right {
+	background-color: #F7F7F7;
+	width: 15%;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	margin-left: 85%;
+	position: fixed;
+	top: -16px;
+	height: 120%;
+}
+.box-question {
+	background-color: #F1F1F1;
+	font-size: 1.5em;
+	text-align: left;
+	text-decoration : none #000;
+	width: 100%;
+	border-bottom: 1px solid black;
+}
+
+.table {
+	border: 1px solid black;
+	width: 90%;
+	margin: auto;
+	margin-top: 10px;
+	background-color: white;
+}
+
+.box-header {
+	text-align: left;
+	font-family: 'Merriweather', serif;
+	font-size: 18px;
+
+}
+
+.title {
+	font-size: 35px;
+	font-family: 'Merriweather', serif;
+	position: relative;
+	margin-top: 20px;
+}
+
+.login-input {
+	padding-left: 5px;
+	height: 25px;
+	color: black;
+	width: 100%;
+	font-size: 20px;
+	font-family: 'Merriweather', serif;
+}
+
+.login-in {
+	margin: 15%;
+}
+
+#box-off {
+	margin: 10px;
+}
