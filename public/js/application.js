@@ -40,7 +40,7 @@ $(document).ready(function(){
 			   	var resultStr; 
 			    	resultStr = 
 			    		"<table class='table'>"+
-			    		"<col width='10%'><col width='40%'><col width='50%'>" +
+			    		"<col width='20%'><col width='30%'><col width='50%'>" +
 							"<thead class='box-header'>" +
 								"<th colspan='2'><a href='/questions/" + data.id + "'>" + data.question + "</a></th>" +
 							"</thead>" +
