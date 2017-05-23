@@ -21,7 +21,7 @@ end
 post '/login' do
 	@user = User.find_by(email: params[:email])
 	session.clear
-	if @user.authenticate(params[:password_digest])
+	if @user && @user.authenticate(params[:password_digest])
   		session[:email] = @user.email
   		session[:full_name] = @user.full_name
   		session[:id] = @user.id

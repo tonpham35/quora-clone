@@ -2,7 +2,6 @@ post '/questions' do
 	@questions = current_user.questions.new(question: params[:question])
 	@questions.save
 	@questions.to_json(methods: [:answer_count], include: :user)
-	# redirect '/'
 end
 
 get '/questions/:id' do
@@ -22,4 +21,10 @@ post '/questions/:id/delete' do
 	x = @question.user.id
 	@question.destroy
 	redirect "users/#{x}"
+end
+
+post '/questions/:id/vote' do
+	@questionvote = current_user.questionvotes.new(user_id: session[:id], question_id: params[:id]) 
+	@questionvote.save
+	redirect '/'
 end

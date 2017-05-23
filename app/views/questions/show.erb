@@ -20,7 +20,7 @@
 			<thead class="box-header">
 				<th colspan="2"><%=index+1%>) <%= x.answer %></th>
 				<th>
-					<% if x.user.id == session[:id] %>
+					<% if x.user == current_user %>
 					<form action="/answers/<%=x.id%>/delete" method="post" style="text-align: right">
 						<span><input class="button-red" type="submit" value="Delete"></span>
 					</form>

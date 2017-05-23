@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 	has_many :questions, dependent: :destroy
 	has_many :answers, dependent: :destroy
+	has_many :questionvotes, dependent: :destroy
 
 	validates :email, :password_digest, :full_name, presence: {message: "Please fill-in all fields" }
 	validates :email, uniqueness: { message: "must be new"}

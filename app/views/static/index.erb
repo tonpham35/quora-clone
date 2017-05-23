@@ -1,13 +1,30 @@
 <div class='question-table' style="width: 70%; margin: auto;">
-	<% @question.order('created_at DESC').each do |x| %>
+	<% @questions.order('created_at DESC').each do |x| %>
 		<table class="table">
+			<col width="10%">
+			<col width="40%">
+			<col width="50%">
 			<thead class="box-header">
-				<th colspan="2"><a href="/questions/<%=x.id%>"><%= x.question %></a>
-				</th>
+				<th colspan="3"><a href="/questions/<%=x.id%>"><%= x.question %></a></th>
 			</thead>
 			<tbody>
 				<tr>
-					<td style="color: grey">Responses: <%= x.answers.count %></td>
+					<% if session[:id] %>
+						<td style="color: grey; text-align: left">Responses: <%= x.answers.count %>	</td>
+						<td>
+						<% if x.questionvotes.count == 0 %>
+							<span style="color: grey; text-align: left">
+							<form id="question_vote" method="post" action="/questions/<%=x.id%>/vote">
+							<input type="image" src="/img/novoted.png" name="vote" alt="Vote!" style="height="12px" width="12px"> (0)
+							</form></span>
+						<% else %>
+							<span style="color: grey; text-align: left">
+							<form id="question_vote" method="post" action="/questions/<%=x.id%>/vote">
+							<input type="image" src="/img/voted.png" name="vote" alt="Vote!" style="height="12px" width="12px"> (<%=x.questionvotes.count%>)
+							</form></span>
+						<% end %>
+						</td>
+					<% end %>
 					<td style="color: grey; text-align: right"><a href="/users/<%=x.user.id%>" style="color: grey"><%= x.user.full_name %> - </a>
 					<span class='question-created-at'><%= x.created_at.iso8601 %></span></td>
 				</tr>
@@ -15,4 +32,3 @@
 		</table><br>
 	<% end %>
 </div>
-

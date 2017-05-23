@@ -1,5 +1,5 @@
 get '/' do
-	@question = Question.all
+	@questions = Question.all
 	erb :"static/index"
 end
 
